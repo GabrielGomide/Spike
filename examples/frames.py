@@ -1,3 +1,5 @@
+# This program creates two frames and renders them using spike
+
 import pygame
 import sys
 

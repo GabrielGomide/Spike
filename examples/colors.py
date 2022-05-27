@@ -14,7 +14,7 @@ while run:
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			run = False
-	surface.fill(spike.RED)
+	surface.fill(spike.RED) # Sets the background color to red using spike's colors
 	pygame.display.update()
 	
 

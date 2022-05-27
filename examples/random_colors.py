@@ -1,3 +1,5 @@
+# This program changes the background to a random color from spike every second
+
 import pygame
 import sys
 

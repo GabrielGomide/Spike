@@ -11,7 +11,13 @@ class Frame:
 
 	def render(self, surface):
 		if self.border > 0:
-			border_rect = pygame.Rect(self.rect.x - self.border, self.rect.y - self.border, self.rect.width + (self.border * 2), self.rect.height + (self.border * 2))
+			border_x = self.rect.x - self.border
+			border_y = self.rect.y - self.border
+			border_width = self.rect.width + (self.border * 2)
+			border_height = self.rect.height + (self.border * 2)
+			border_rect = pygame.Rect(border_x, border_y, border_width, border_height)
 			pygame.draw.rect(surface, self.border_color, border_rect)
 		pygame.draw.rect(surface, self.background_color, self.rect)
+
+
 

@@ -17,3 +17,11 @@ def random_color():
 	color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 	return color
 
+def is_color(color):
+	if len(color) != 3: return False
+	if not (0 < color[0] < 256): return False
+	if not (0 < color[1] < 256): return False
+	if not (0 < color[2] < 256): return False
+	return True	
+
+

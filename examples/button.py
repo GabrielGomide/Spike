@@ -26,8 +26,8 @@ while run:
 		if event.type == pygame.MOUSEBUTTONDOWN:
 			if button.in_button(pygame.mouse.get_pos()):
 				current_color = spike.random_color()
-				button.rect.x = random.randint(0, width - (button.rect.width + button.border))
-				button.rect.y = random.randint(0, height - (button.rect.height + button.border))
+				button.rect.x = random.randint(button.border, width - (button.rect.width + button.border))
+				button.rect.y = random.randint(button.border, height - (button.rect.height + button.border))
 
 	surface.fill(current_color)
 	button.render(surface)

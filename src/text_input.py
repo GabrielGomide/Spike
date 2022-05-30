@@ -1,5 +1,6 @@
 import pygame
 from . import colors
+from . import text
 
 pygame.font.init()
 
@@ -8,13 +9,12 @@ possible_keys = 'abcdefghijklmnopqrstuvwxy0123456789'
 uppercase = False
 
 class TextInput:
-    def __init__(self, rect, background_color=colors.WHITE, placeholder='', font_type='Comic Sans MS', text_size=30, border=0, border_color=colors.BLACK):
+    def __init__(self, rect, background_color=colors.WHITE, placeholder='', border=0, border_color=colors.BLACK):
             self.rect = rect
             self.background_color = background_color
             self.placeholder = placeholder
-            self.font_type = font_type
-            self.text_size = text_size
-            self.font = pygame.font.SysFont(self.font_type, self.text_size)
+            self._text = text.Text(placeholder, self.rect.x + (self.rect.width // 2), self.rect.y + (self.rect.height // 2))
+            self.text_size = 30
             self.border = border
             self.border_color = border_color
             self.selected = False
@@ -30,9 +30,6 @@ class TextInput:
             pygame.draw.rect(surface, self.border_color, border_rect)
         
         pygame.draw.rect(surface, self.background_color, self.rect)
-        text_x = self.rect.x + (self.rect.width / 2)
-        text_y = self.rect.y + (self.rect.height / 2)
-
         max_characters_in_input = int(self.rect.width // self.text_size * 2.7)
 
         if self.text_content:
@@ -42,22 +39,19 @@ class TextInput:
                 formated_text = self.text_content
 
             if not self.selected:
-                text = self.font.render(formated_text, False, colors.BLACK)
+                self._text.text = formated_text
             else:
-                text = self.font.render(formated_text + '|', False, colors.BLACK) 
-            text_rect = text.get_rect(center=(text_x, text_y))
-            surface.blit(text, text_rect)
+                self._text.text = formated_text + '|'
         elif self.selected:
             if pygame.time.get_ticks() // 500 % 2 == 0:
-                text = self.font.render('|', False, colors.BLACK)
+                self._text.text = ''
             else:
-                text = self.font.render(' ', False, colors.BLACK)
-            text_rect = text.get_rect(center=(text_x, text_y))
-            surface.blit(text, text_rect)
+                self._text.text = '|'    
+            
         elif self.placeholder:
-            text = self.font.render(self.placeholder, False, colors.BLACK)
-            text_rect = text.get_rect(center=(text_x, text_y))
-            surface.blit(text, text_rect)
+            self._text.text = self.placeholder
+
+        self._text.render(surface)
 
     def received_input(self, event):
         global uppercase

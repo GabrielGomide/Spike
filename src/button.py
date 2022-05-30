@@ -4,7 +4,7 @@ from . import colors
 pygame.font.init()
 
 class Button:
-    def __init__(self, rect, background_color, text='Button', font_type='Comis Sans MS', text_size=30, border=0, border_color=colors.BLACK):
+    def __init__(self, rect, background_color, text='Button', font_type='Comic Sans MS', text_size=30, border=0, border_color=colors.BLACK):
         self.rect = rect
         self.background_color = background_color
         self.text_content = text

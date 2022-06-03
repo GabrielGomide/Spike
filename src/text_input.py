@@ -13,7 +13,7 @@ class TextInput:
             self.rect = rect
             self.background_color = background_color
             self.placeholder = placeholder
-            self._text = text.Text(placeholder, self.rect.x + (self.rect.width // 2), self.rect.y + (self.rect.height // 2))
+            self._text = text.Text(placeholder, self.rect.x + (self.rect.width // 2), self.rect.y + (self.rect.height // 2), center=True)
             self.text_size = 30
             self.border = border
             self.border_color = border_color

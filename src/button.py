@@ -25,7 +25,7 @@ class Button:
             pygame.draw.rect(surface, self.border_color, border_rect)
         pygame.draw.rect(surface, self.background_color, self.rect)
         if self.text_content:
-            text01 = text.Text(self.text_content, self.rect.x + (self.rect.width // 2), self.rect.y + (self.rect.height // 2), self.text_color, font_type=self.font_type, text_size=self.text_size)
+            text01 = text.Text(self.text_content, self.rect.x + (self.rect.width // 2), self.rect.y + (self.rect.height // 2), self.text_color, font_type=self.font_type, text_size=self.text_size, center=True)
             text01.render(surface)
 
 

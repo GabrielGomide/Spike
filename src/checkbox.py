@@ -2,6 +2,16 @@ import pygame
 from . import colors
 from . import text as _text
 
+def handle_checkbox_group(mouse_pos, *checkboxes):
+    for checkbox01 in checkboxes:
+        if checkbox01.in_checkbox(mouse_pos):
+            checkbox01.marked = not checkbox01.marked
+
+            for checkbox02 in checkboxes:
+                if checkbox01 != checkbox02:
+                    checkbox02.marked = False
+
+
 class CheckBox:
     def __init__(self, rect, border=2, background_color=colors.WHITE, border_color=colors.BLACK, text=None, font_type='Comic Sans MS', text_size=30, text_color=colors.BLACK):
         self.rect = rect

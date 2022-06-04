@@ -5,5 +5,5 @@ from src.text_input import *
 from src.text import *
 from src.images import *
 from src.checkbox import *
-
+from src.select import *
 

@@ -89,6 +89,9 @@ while run:
             name_input.received_input(event) # Add key to text
         elif event.type == pygame.KEYUP: # Player stoped pressing key on keyboard
             name_input.ended_input(event) # Tell the text input
+    
+    if not name_input.selected and name_input.border_color == spike.BLUE:
+        name_input.border_color = spike.BLACK
 
     surface.fill(spike.RED) # Make the background color red
     frame01.render(surface, fps) # Render the first frame AND ALL ITS ENTITIES

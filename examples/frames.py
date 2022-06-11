@@ -42,8 +42,8 @@ while run:
             run = False
 	
     surface.fill(spike.RED) # Make the background color red
-    frame01.render(surface) # Render the first frame
-    frame02.render(surface) # Render the second frame
+    frame01.render(surface, fps) # Render the first frame
+    frame02.render(surface, fps) # Render the second frame
     pygame.display.update() # Update the screen
 	
 

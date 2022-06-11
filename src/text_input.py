@@ -50,6 +50,8 @@ class TextInput:
             
         elif self.placeholder:
             self._text.text = self.placeholder
+        else:
+            self._text.text = ''
 
         self._text.render(surface)
 

@@ -6,4 +6,6 @@ from src.text import *
 from src.images import *
 from src.checkbox import *
 from src.select import *
+from src.drag_and_drop import *
+
 
